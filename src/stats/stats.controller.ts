@@ -1,6 +1,7 @@
-import { Controller, Get, Param, Query, Req, Request } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { StatsService } from '../services/stats.service';
 import type { Stat } from '../types/Stat';
+import { Covid19DataByCountry } from '../types/Covid19DataByCountry';
 
 @Controller('stats')
 export class StatsController {
@@ -14,4 +15,9 @@ export class StatsController {
     console.log('stats', query);
     return this.statsService.getStats(query.dateFrom, query.dateTo);
   }
+
+  // @Get('/checkApi')
+  // async checkApi(@Query() query): Promise<ReadonlyArray<Covid19DataByCountry>> {
+  //   return await this.statsService.checkApi();
+  // }
 }
